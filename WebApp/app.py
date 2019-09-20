@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request
+from sklearn import preprocessing
 import numpy as np
-from sklearn.externals import joblib
+import pickle
 
 app = Flask(__name__)
-model = joblib.load('model.pkl')
+
+pickle_in = open("model.pickle","rb")
+model = pickle.load(pickle_in)
+
 
 
 @app.route('/')
@@ -23,9 +27,15 @@ def results():
 		SPPA = request.form.get('SPPA')
 		TQX = request.form.get('TQX')
 		array = np.array([[RPM,STOR,HKLX,HOOKLD,HKLD,SPPA1,SPPA2,SPPA,TQX]])
-		predicted_stock_price = model.predict_proba(array)
+		n_array = preprocessing.normalize(array)
+		predicted_value = model.predict(n_array)
+			
+		if predicted_value == 1: predicted_value = "Ceci est une situation de stuck-pipe."
+		else: predicted_value = "Ceci n'est pas une situation de stuck-pipe."
+	
+
 		return render_template('resultsform.html',RPM=RPM,STOR=STOR,
-			HKLX=HKLX,HOOKLD=HOOKLD,HKLD=HKLD,SPPA1=SPPA1,SPPA2=SPPA2,SPPA=SPPA,TQX=TQX ,predicted_price=predicted_stock_price)
+			HKLX=HKLX,HOOKLD=HOOKLD,HKLD=HKLD,SPPA1=SPPA1,SPPA2=SPPA2,SPPA=SPPA,TQX=TQX ,predicted_result=predicted_value)
 
 if __name__ == '__main__':
 	app.run(debug='true')
