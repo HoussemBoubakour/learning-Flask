@@ -3,113 +3,135 @@
 <head>
   <title>Système de prévision</title>
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style type="text/css">
+  .text_label{color: white; text-align: center;}
+</style>
+
+
 </head>
-<body><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<body class="text-center" style="background: #004D57">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<div class="container"> 
+        
+ <center><h2 class="text_label">Système de prévision des coincement de la garniture (Stuck pipe)</h2></center>
+</div>
+
 <form action = "http://localhost:5000/results" method = "POST">
 
- <center><h2 class="mb-3">Système de prévision des coincement de la garniture (Stuck pipe)</h2></center>
+        <hr class="mb-4">
 
-        
+ 
+          <p class="text_label">Veuillez remplir les champs suivants et appuyer sur le boutton AFFICHER LE RÉSULTAT DE LA PRÉVISION.</p>
+
+
+       
+       <div class="container"> 
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="cc-name">RPM</label>
-            <input type="text" class="form-control" id="RPM" placeholder="" required>
+            <label class="text_label">RPM</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="RPM" placeholder="" required>
             <small class="text-muted">Rotation par minute</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="cc-number">STOR</label>
-            <input type="text" class="form-control" id="STOR" placeholder="" required>
+            <label class="text_label">STOR</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="STOR" placeholder="" required>
             <small class="text-muted">Nombre total de strokes, nombre total des coupes de pompes</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
         </div>
+      </div>
 
-
-
+<div class="container">
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="cc-name">HKLX</label>
-            <input type="text" class="form-control" id="HKLX" placeholder="" required>
+            <label class="text_label">HKLX</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="HKLX" placeholder="" required>
             <small class="text-muted">Capteur poids max</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="cc-number">HOOKLD</label>
-            <input type="text" class="form-control" id="HOOKLD" placeholder="" required>
+            <label class="text_label">HOOKLD</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="HOOKLD" placeholder="" required>
             <small class="text-muted">Capteur poids mécanique</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
         </div>
+</div>
 
-
-
+<div class="container">
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="cc-name">HKLD</label>
-            <input type="text" class="form-control" id="HKLD" placeholder="" required>
+            <label class="text_label">HKLD</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="HKLD" placeholder="" required>
             <small class="text-muted">Capteur poids hydraulique</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="cc-number">SPPA1</label>
-            <input type="text" class="form-control" id="SPPA1" placeholder="" required>
+            <label class="text_label">SPPA1</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="SPPA1" placeholder="" required>
             <small class="text-muted">Capteur de pompe 1</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
         </div>
+</div>
 
-
-
+<div class="container">
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="cc-name">SPPA2</label>
-            <input type="text" class="form-control" id="SPPA2" placeholder="" required>
+            <label class="text_label">SPPA2</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="SPPA2" placeholder="" required>
             <small class="text-muted">Capteur de pompe 2</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="cc-number">SPPA</label>
-            <input type="text" class="form-control" id="SPPA" placeholder="" required>
-            <small class="text-muted">Capteur stand pipe pressor, capteur de pression de la colonne montente</small>
+            <label class="text_label">SPPA</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="SPPA" placeholder="" required>
+            <small class="text-muted">Captor stand pipe pressor, capteur de pression de la colonne montante</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
         </div>
+</div>
 
-
-
+<div class="container">
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="cc-name">TQX</label>
-            <input type="text" class="form-control" id="TQX" placeholder="" required>
+            <label class="text_label">TQX</label>
+            <input type="number" step="0.01" min="0" max="20000" class="form-control" name="TQX" placeholder="" required>
             <small class="text-muted">Torque</small>
             <div class="invalid-feedback">
               Ce paramètre est obligatoire
             </div>
           </div>
         </div>
-
-
+</div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit"> <h3>Afficher le résultat de la prévision</h3> </button>
+        <center><button class="btn btn-light btn-lg" type="submit" style="font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; "> AFFICHER LE RÉSULTAT DE LA PRÉVISION </button></center>
 
 
 </form>
+<div class="container">
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
+  
+  <a class="navbar-brand navbar-text ml-auto py-0" style="font-size: 0.7em" href="#">Université Mostafa Benboulaid - Batna 2 -2019-</a>
+
+</nav>
+</div>
 </body>
 </html>
