@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style type="text/css">
+  .text_table{font-size: 1.4em}
+  .text{font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";text-align: center;}
+</style>
+</head>
+<body style="background: #004D57">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<h1>
+        
+        <div class="container-fluid" style="color: white;">
+          <div class="text text_table">Résultat de la prévision</div>
+        </div>
+</h1>
+
+        <hr class="mb-4">
+
+<div class="text_table">
+  <table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Paramètre</th>
+      <th scope="col">Valeur</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Rotation par minute</th>
+      <td>{{RPM}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Nombre total de strokes, nombre total des coupes de pompes</th>
+      <td>{{STOR}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Capteur poids max</th>
+      <td>{{HKLX}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Capteur poids mécanique</th>
+      <td>{{HOOKLD}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Capteur poids hydraulique</th>
+      <td>{{HKLD}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Capteur de pompe 1</th>
+      <td>{{SPPA1}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Capteur de pompe 2</th>
+      <td>{{SPPA2}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Captor stand pipe pressor, capteur de pression de la colonne montante</th>
+      <td>{{SPPA}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Torque</th>
+      <td>{{TQX}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr class="mb-4">
+<h1>
+
+<div class="container" >
+  {%if predicted_result =="Ceci est une situation de stuck-pipe." %}
+              <div class="text text_table" style="color: green">{{ predicted_result }}</div>
+  {% else %}
+               <div class="text text_table" style="color: red">{{ predicted_result }}</div>
+  {% endif %}
+        </div>
+</h1>
+
+        <hr class="mb-4">
+
+<form action = "http://localhost:5000/" method = "GET">
+<div class="text container"><button class="btn btn-light btn-lg"> <h2>RÉINITIALISER</h2> </button></div>
+</form>
+
+
+</body>
+</html>
